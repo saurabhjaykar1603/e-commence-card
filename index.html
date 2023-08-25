@@ -130,9 +130,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn">+</button>
-                <span>1</span>
-                <button class="quantity-btn">+</button>
+                <button class="quantity-btn"  onclick="changeQuantity('dec')">+</button>
+                <span id="quantity">1</span>
+                <button class="quantity-btn" onclick="changeQuantity('inc')">+</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -146,9 +146,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn">+</button>
+                <button class="quantity-btn" >+</button>
                 <span>1</span>
-                <button class="quantity-btn">+</button>
+                <button class="quantity-btn" >-</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -165,7 +165,7 @@
 
             <div class="quanity-contaoner">
                 <button class="quantity-btn">+</button>
-                <span>1</span>
+                <span >1</span>
                 <button class="quantity-btn">+</button>
             </div>
 
@@ -191,86 +191,26 @@
 
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
 
+    <script>
+
+        const quantElement = document.getElementById('quantity');
+        let quantity = parseInt(quantElement.innerText);
+
+        function changeQuantity(op) {
+            if (op == 'dec' && quantity == 1) {
+                return
+            }
+            if (op == 'inc' && quantity == 10) {
+                return
+            }
+            quantElement.innerText = op == 'inc' ? ++ quantity : -- quantity;
+
+        }
+
+    </script>
 </body>
 
 </html>
