@@ -130,9 +130,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn"  onclick="changeQuantity('dec')">+</button>
-                <span id="quantity">1</span>
-                <button class="quantity-btn" onclick="changeQuantity('inc')">+</button>
+                <button class="quantity-btn"  onclick="changeQuantity('dec', 0)">-</button>
+                <span id="quantity0">1</span>
+                <button class="quantity-btn" onclick="changeQuantity('inc', 0)">+</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -146,9 +146,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn" >+</button>
-                <span>1</span>
-                <button class="quantity-btn" >-</button>
+                <button class="quantity-btn" onclick="changeQuantity('dec', 1)">-</button>
+                <span id="quantity1">1</span>
+                <button class="quantity-btn" onclick="changeQuantity('inc', 1)">+</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -164,9 +164,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn">+</button>
-                <span >1</span>
-                <button class="quantity-btn">+</button>
+                <button class="quantity-btn"  onclick="changeQuantity('dec', 2)">-</button>
+                <span id="quantity2">1</span>
+                <button class="quantity-btn"  onclick="changeQuantity('inc', 2)">+</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -181,9 +181,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn">+</button>
-                <span>1</span>
-                <button class="quantity-btn">+</button>
+                <button class="quantity-btn" onclick="changeQuantity('dec', 3)">-</button>
+                <span id="quantity3">1</span>
+                <button class="quantity-btn" onclick="changeQuantity('inc', 3)">+</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -196,17 +196,28 @@
 
     <script>
 
-        const quantElement = document.getElementById('quantity');
-        let quantity = parseInt(quantElement.innerText);
+      
+        const quantities = [0, 1, 2, 3];
 
-        function changeQuantity(op) {
+        function changeQuantity(op, ind) {
+            const quantElement = document.getElementById(`quantity${ind}`);
+
+            const quantity = quantities[ind];
+
             if (op == 'dec' && quantity == 1) {
-                return
+                alert('Minimum Quantity Can be 1')
+                return 
             }
             if (op == 'inc' && quantity == 10) {
+                alert('Minimum Quantity Can be 10')
                 return
             }
-            quantElement.innerText = op == 'inc' ? ++ quantity : -- quantity;
+            if (op == 'inc') {
+                quantities[ind]++;
+            } else {
+                quantities[ind]--;
+            }
+            quantElement.innerText = quantities[ind];
 
         }
 
