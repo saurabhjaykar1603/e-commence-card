@@ -130,7 +130,7 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn"  onclick="changeQuantity('dec', 0)">-</button>
+                <button class="quantity-btn" onclick="changeQuantity('dec', 0)">-</button>
                 <span id="quantity0">1</span>
                 <button class="quantity-btn" onclick="changeQuantity('inc', 0)">+</button>
             </div>
@@ -164,9 +164,9 @@
             <hr width="80%">
 
             <div class="quanity-contaoner">
-                <button class="quantity-btn"  onclick="changeQuantity('dec', 2)">-</button>
+                <button class="quantity-btn" onclick="changeQuantity('dec', 2)">-</button>
                 <span id="quantity2">1</span>
-                <button class="quantity-btn"  onclick="changeQuantity('inc', 2)">+</button>
+                <button class="quantity-btn" onclick="changeQuantity('inc', 2)">+</button>
             </div>
 
             <button class="product-btn">Add to Cart</button>
@@ -196,8 +196,8 @@
 
     <script>
 
-      
-        const quantities = [0, 1, 2, 3];
+
+        const quantities = [1,1,1,1];
 
         function changeQuantity(op, ind) {
             const quantElement = document.getElementById(`quantity${ind}`);
@@ -206,7 +206,7 @@
 
             if (op == 'dec' && quantity == 1) {
                 alert('Minimum Quantity Can be 1')
-                return 
+                return
             }
             if (op == 'inc' && quantity == 10) {
                 alert('Minimum Quantity Can be 10')
